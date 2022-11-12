@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.title{
+    font-family: 'Pacifico-Regular';
+    src: url('fonts/Pacifico-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}

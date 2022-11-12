@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Newspage Administration</title>
+    <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <!-- Liên kết Taildwind CSS -->
@@ -12,12 +12,15 @@
     <script src="<?php echo $_DOMAIN; ?>js/jquery.min.js"></script>
     <!--Liên kết thư viện fontawesome -->
     <script src="<?php echo $_DOMAIN; ?>fontawesome-free-6.2.0-web/js/all.min.js"></script>
+    <!--Liên kếy file style CSS-->
+    <link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/css/styles.css">
+    <link href="<?php echo $_DOMAIN; ?>/css/output.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="header border-bottom border-stale-700 shadow-sm max-w-screen">
-        <div class="w-[1440px] flex justify-between items-center space-x-2 relative mx-auto h-24 mt-5 mx-auto max-w-[1440px] px-2 sm:px-6 lg:px-8">
+    <div class="header border-bottom border-stale-700 shadow-sm max-w-screen fixed top-0 left-0 right-0 z-20 bg-white">
+        <div class="w-[1440px] flex justify-between items-center space-x-2 relative mx-auto h-24 mt-5 max-w-[1440px] px-2 sm:px-6 lg:px-8">
             <div class="header-left flex relative justify-between space-x-2">
                 <div class="logo">
                     <img src="https://www.freeiconspng.com/uploads/nike-logo-shape-symbol-png-9.png" width="100" alt="nike logo shape symbol png" />
@@ -27,11 +30,11 @@
                     <ul class="flex justify-between space-x-6">
                         <?php
                         // In chuyên mục của bài viết
-                        $sql_get_data_menu = "SELECT * FROM menu";
+                        $sql_get_data_menu = "SELECT * FROM category_product";
                         if ($db->num_rows($sql_get_data_menu)) {
                             // $data_menu = $db->fetch_assoc($sql_get_data_menu, 1);
                             foreach ($db->fetch_assoc($sql_get_data_menu, 0) as $data_menu) {
-                                echo '<li class="p-3 border-2 border-white rounded hover:border-b-black "><a class="btn btn-primary btn-sm" href="' . $_DOMAIN . 'category/' . strtolower($data_menu['name_menu']) . '">' . $data_menu['name_menu'] . '</a></li> ';
+                                echo '<li class="p-3 border-2 border-white rounded hover:border-b-black "><a class="btn btn-primary btn-sm" href="' . $_DOMAIN . 'category/' . strtolower($data_menu['name_category_product']) . '">' . strtoupper($data_menu['name_category_product']) . '</a></li> ';
                             }
                         }
                         ?>
@@ -99,3 +102,4 @@
                 </div>
             </div>
         </div>
+    </div>
