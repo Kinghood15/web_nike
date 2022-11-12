@@ -7,6 +7,11 @@ $id = trim(htmlspecialchars(addslashes($_GET['id'])));
 $sql_get_data_product = "SELECT * FROM product WHERE id = '$id' AND name_slug='$sp'";
 if ($db->num_rows($sql_get_data_product)) {
   $data_product = $db->fetch_assoc($sql_get_data_product, 1);
+  $id_category = $data_product['id_category_product'];
+  $sql_get_data_product_by_id = "SELECT * FROM category_product WHERE id = '$id_category'";
+  if($db->num_rows($sql_get_data_product_by_id)){
+    $data_product_category = $db->fetch_assoc($sql_get_data_product_by_id,1);
+  }
 } else {
   // Nếu không tồn tại 
   require 'templates/404.php';
@@ -20,7 +25,7 @@ if ($db->num_rows($sql_get_data_product)) {
       <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <li>
           <div class="flex items-center">
-            <a href="#" class="mr-2 text-sm font-medium text-gray-900">Men</a>
+            <a href="#" class="mr-2 text-sm font-medium text-gray-900"><?php echo strtoupper($data_product_category['name_category_product']) ?></a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-4 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
@@ -29,15 +34,11 @@ if ($db->num_rows($sql_get_data_product)) {
 
         <li>
           <div class="flex items-center">
-            <a href="#" class="mr-2 text-sm font-medium text-gray-900">Clothing</a>
+            <a href="#" class="mr-2 text-sm font-medium text-gray-900"><?php echo $data_product['name_product'] ?></a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-4 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
           </div>
-        </li>
-
-        <li class="text-sm">
-          <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">Basic Tee 6-Pack</a>
         </li>
       </ol>
     </nav>
@@ -69,7 +70,7 @@ if ($db->num_rows($sql_get_data_product)) {
       <!-- Options -->
       <div class="mt-4 lg:row-span-3 lg:mt-0">
         <h2 class="sr-only">Product information</h2>
-        <p class="text-3xl tracking-tight text-gray-900">$192</p>
+        <p class="text-3xl tracking-tight text-gray-900"><?php echo $data_product['price'] - ($data_product['price'] * $data_product['discount'] / 100) ?></p>
 
         <!-- Reviews -->
         <div class="mt-6">
@@ -106,7 +107,7 @@ if ($db->num_rows($sql_get_data_product)) {
               </svg>
             </div>
             <p class="sr-only">4 out of 5 stars</p>
-            <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">117 reviews</a>
+            <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"><?php echo $data_product['view_buy'] ?> buy</a>
           </div>
         </div>
 
@@ -118,35 +119,8 @@ if ($db->num_rows($sql_get_data_product)) {
             <fieldset class="mt-4">
               <legend class="sr-only">Choose a color</legend>
               <div class="flex items-center space-x-3">
-                <!--
-                  Active and Checked: "ring ring-offset-1"
-                  Not Active and Checked: "ring-2"
-                -->
-                <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-400">
-                  <input type="radio" name="color-choice" value="White" class="sr-only" aria-labelledby="color-choice-0-label">
-                  <span id="color-choice-0-label" class="sr-only"> White </span>
-                  <span aria-hidden="true" class="h-8 w-8 bg-white border border-black border-opacity-10 rounded-full"></span>
-                </label>
+                
 
-                <!--
-                  Active and Checked: "ring ring-offset-1"
-                  Not Active and Checked: "ring-2"
-                -->
-                <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-400">
-                  <input type="radio" name="color-choice" value="Gray" class="sr-only" aria-labelledby="color-choice-1-label">
-                  <span id="color-choice-1-label" class="sr-only"> Gray </span>
-                  <span aria-hidden="true" class="h-8 w-8 bg-gray-200 border border-black border-opacity-10 rounded-full"></span>
-                </label>
-
-                <!--
-                  Active and Checked: "ring ring-offset-1"
-                  Not Active and Checked: "ring-2"
-                -->
-                <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900">
-                  <input type="radio" name="color-choice" value="Black" class="sr-only" aria-labelledby="color-choice-2-label">
-                  <span id="color-choice-2-label" class="sr-only"> Black </span>
-                  <span aria-hidden="true" class="h-8 w-8 bg-gray-900 border border-black border-opacity-10 rounded-full"></span>
-                </label>
               </div>
             </fieldset>
           </div>
@@ -270,31 +244,7 @@ if ($db->num_rows($sql_get_data_product)) {
           <h3 class="sr-only">Description</h3>
 
           <div class="space-y-6">
-            <p class="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee has you covered.</p>
-          </div>
-        </div>
-
-        <div class="mt-10">
-          <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
-
-          <div class="mt-4">
-            <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
-              <li class="text-gray-400"><span class="text-gray-600">Hand cut and sewn locally</span></li>
-
-              <li class="text-gray-400"><span class="text-gray-600">Dyed with our proprietary colors</span></li>
-
-              <li class="text-gray-400"><span class="text-gray-600">Pre-washed &amp; pre-shrunk</span></li>
-
-              <li class="text-gray-400"><span class="text-gray-600">Ultra-soft 100% cotton</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mt-10">
-          <h2 class="text-sm font-medium text-gray-900">Details</h2>
-
-          <div class="mt-4 space-y-6">
-            <p class="text-sm text-gray-600">The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited release.</p>
+            <p class="text-base text-gray-900"><?php echo $data_product['description']  ?></p>
           </div>
         </div>
       </div>
