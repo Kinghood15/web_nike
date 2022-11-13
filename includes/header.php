@@ -12,6 +12,7 @@
     <script src="<?php echo $_DOMAIN; ?>js/jquery.min.js"></script>
     <!--Liên kết thư viện fontawesome -->
     <script src="<?php echo $_DOMAIN; ?>fontawesome-free-6.2.0-web/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css" integrity="sha384-z4tVnCr80ZcL0iufVdGQSUzNvJsKjEtqYZjiQrrYKlpGow+btDHDfQWkFjoaz/Zr" crossorigin="anonymous">
     <!--Liên kếy file style CSS-->
     <link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/css/styles.css">
@@ -79,12 +80,12 @@
                     </button>
                 </div>
                 <div class="absolute inset-y-0 right-0 flex justify-between space-x-6 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                    <button type="button" class="h-8 w-8 flex justify-center border border-red-400 align-center items-center flex-cols rounded-full bg-red-400 p-1 text-white hover:border-gray-200 hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <button type="button" class="h-8 w-8 flex justify-center border border-red-400 p-1 items-center flex-cols rounded-full bg-red-400 text-white hover:border-gray-400 hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span class="sr-only">View cart</span>
                         <!-- Heroicon name: outline/bell -->
-                        <i class="h-4 w-4 fa-solid fa-cart-arrow-down"></i>
+                        <i class="text-sm fa-solid fa-cart-arrow-down"></i>
                     </button>
-                    <button type="button" class="border rounded-full bg-white p-1 text-gray-400 hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <button type="button" class="border rounded-full bg-white p-1 text-gray-400 border border-gray-400 hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span class="sr-only">View notifications</span>
                         <!-- Heroicon name: outline/bell -->
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -99,7 +100,7 @@
                         '
                         <div class="relative ml-3">
                             <div>
-                                <button type="button" class="h-8 w-8 flex items-center justify-center align-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <button type="button" class="h-8 w-8 flex items-center justify-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <i class="h-5 w-5 text-white fa-solid fa-user"></i>
                                 </button>
                             </div>

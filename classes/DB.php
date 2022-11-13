@@ -4,9 +4,9 @@
 class DB
 {
 	// Các biến thông tin kết nối
-	private $hostname = 'http://185.27.134.10',
-			$username = 'root',
-			$password = '',
+	private $hostname = 'sql108.epizy.com',
+			$username = 'epiz_32990411',
+			$password = 'z9lFPIPmCB',
 			$dbname = 'epiz_32990411_nike_clone';
 
 	// Biến lưu trữ kết nối

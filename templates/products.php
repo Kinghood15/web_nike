@@ -130,18 +130,6 @@ if ($db->num_rows($sql_get_data_product)) {
         </div>
 
         <form class="mt-10">
-          <!-- Colors -->
-          <div>
-            <h3 class="text-sm font-medium text-gray-900">Color</h3>
-
-            <fieldset class="mt-4">
-              <legend class="sr-only">Choose a color</legend>
-              <div class="flex items-center space-x-3">
-
-
-              </div>
-            </fieldset>
-          </div>
 
           <!-- Sizes -->
           <div class="mt-10">
