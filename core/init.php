@@ -11,7 +11,7 @@ $db->connect();
 $db->set_char('utf8');
 
 // Thông tin chung
-$_DOMAIN = 'http://localhost:8000/web_nike/';
+$_DOMAIN = 'http://web-nike-demo.infinityfreeapp.com/web_nike/';
 
 date_default_timezone_set('Asia/Ho_Chi_Minh'); 
 $date_current = '';

@@ -9,8 +9,8 @@ if ($db->num_rows($sql_get_data_product)) {
   $data_product = $db->fetch_assoc($sql_get_data_product, 1);
   $id_category = $data_product['id_category_product'];
   $sql_get_data_product_by_id = "SELECT * FROM category_product WHERE id = '$id_category'";
-  if($db->num_rows($sql_get_data_product_by_id)){
-    $data_product_category = $db->fetch_assoc($sql_get_data_product_by_id,1);
+  if ($db->num_rows($sql_get_data_product_by_id)) {
+    $data_product_category = $db->fetch_assoc($sql_get_data_product_by_id, 1);
   }
 } else {
   // Nếu không tồn tại 
@@ -34,7 +34,7 @@ if ($db->num_rows($sql_get_data_product)) {
 
         <li>
           <div class="flex items-center">
-            <a href="#" class="mr-2 text-sm font-medium text-gray-900"><?php echo $data_product['name_product'] ?></a>
+            <a href="<?php echo $_DOMAIN.$data_product['name_slug'] . '-' . $data_product['id']; ?>/" class="mr-2 text-sm font-medium text-gray-900"><?php echo $data_product['name_product'] ?></a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-4 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
@@ -70,8 +70,26 @@ if ($db->num_rows($sql_get_data_product)) {
       <!-- Options -->
       <div class="mt-4 lg:row-span-3 lg:mt-0">
         <h2 class="sr-only">Product information</h2>
-        <p class="text-3xl tracking-tight text-gray-900"><?php echo $data_product['price'] - ($data_product['price'] * $data_product['discount'] / 100) ?></p>
+        <p class="py-1 text-3xl tracking-tight text-gray-900">
+          <?php
+          echo number_format($data_product['price'] - ($data_product['price'] * $data_product['discount'] / 100)) . " VNĐ"
+          ?>
+        </p>
 
+        <div class="py-1 flex justify-between">
+          <p class="text-xl tracking-tight line-through text-gray-400">
+            <?php
+            echo number_format($data_product['price']) . " VNĐ"
+            ?>
+          </p>
+          <div class="py-1 px-3 bg-red-500 rounded-md flex items-center justify-center">
+            <p class="text-base tracking-tight line-through text-white">
+              <?php
+              echo $data_product['discount'] . " %"
+              ?>
+            </p>
+          </div>
+        </div>
         <!-- Reviews -->
         <div class="mt-6">
           <h3 class="sr-only">Reviews</h3>
@@ -119,7 +137,7 @@ if ($db->num_rows($sql_get_data_product)) {
             <fieldset class="mt-4">
               <legend class="sr-only">Choose a color</legend>
               <div class="flex items-center space-x-3">
-                
+
 
               </div>
             </fieldset>

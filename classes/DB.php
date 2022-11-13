@@ -4,10 +4,10 @@
 class DB
 {
 	// Các biến thông tin kết nối
-	private $hostname = 'localhost',
+	private $hostname = 'http://185.27.134.10',
 			$username = 'root',
 			$password = '',
-			$dbname = 'nike_clone';
+			$dbname = 'epiz_32990411_nike_clone';
 
 	// Biến lưu trữ kết nối
 	public $cn = NULL;

@@ -1,3 +1,15 @@
+function handleClickMenuDropDown(e){
+    var boxMenuTaret = document.getElementById("boxMenu");
+    boxMenuTaret.classList.forEach(item => {
+        if(item === "hidden"){
+            boxMenuTaret.classList.remove("hidden");
+            boxMenuTaret.classList.add("block");
+        }else if(item === "block"){
+            boxMenuTaret.classList.remove("block");
+            boxMenuTaret.classList.add("hidden");
+        }
+    })
+}
 function handleClickBtnSky(e) {
     var boxSlideShow = document.getElementById("boxSlideShow");
     boxSlideShow.classList.forEach(item =>{

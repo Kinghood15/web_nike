@@ -12,8 +12,11 @@
                 echo '
                     <a href="' . $_DOMAIN . $data_product['name_slug'] . '-' . $data_product['id'] . '.html">
                         <div class="w-56 h-full p-3 gap-6 rounded-xl bg-slate-200 shadow-xl">
-                            <div class="w-full h-56 flex items-center border border-slate-500 rounded-xl">
+                            <div class="w-full h-56 flex relative items-center border border-slate-500 rounded-xl">
                                 <img id="imageSlideShow" class="mx-auto w-[90%] h-[90%] delay-200 transform-gpu transition ease-in-out transition-y-0 hover:transition-y-100" alt="' . $data_product['name_product'] . '" src="' . $data_product['url'] . '" />
+                                <div class="px-2 py-4 flex items-center rounded-b-lg bg-red-500 justify-center absolute top-0 right-5">
+                                    <p class="w-full h-full text-white">'.$data_product['discount'].'%'.'</p>
+                                </div>
                             </div>
                             <div class="w-full h-full py-2 my-1">
                                 <p class="text-lg font-bold my-1">' . $data_product['name_product'] . '</p>
@@ -24,9 +27,9 @@
                                     <i class="text-yellow-300 fa-solid fa-star"></i>
                                     <i class="text-yellow-300 fa-regular fa-star"></i>
                                 </div>
-                                <div class="flex justify-between my-2">
-                                    <p class="text-base text-stale-400 font-semibold">' . $data_product['price'] - ($data_product['price'] * $data_product['discount'] / 100) . '$</p> 
-                                    <p class="text-base text-stale-400 font-semibold line-through">' . $data_product['price'] . '$</p> 
+                                <div class="my-2">
+                                    <p class="text-lg text-stale-400 font-bold">' . number_format($data_product['price'] - ($data_product['price'] * $data_product['discount'] / 100)) . " VNĐ" . '</p> 
+                                    <p class="text-base text-stale-400 font-semibold line-through">' . number_format($data_product['price']) . " VNĐ" . '</p> 
                                 </div>
                             </div>
                         </div>

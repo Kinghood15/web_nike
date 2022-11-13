@@ -12,6 +12,7 @@
     <script src="<?php echo $_DOMAIN; ?>js/jquery.min.js"></script>
     <!--Liên kết thư viện fontawesome -->
     <script src="<?php echo $_DOMAIN; ?>fontawesome-free-6.2.0-web/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css" integrity="sha384-z4tVnCr80ZcL0iufVdGQSUzNvJsKjEtqYZjiQrrYKlpGow+btDHDfQWkFjoaz/Zr" crossorigin="anonymous">
     <!--Liên kếy file style CSS-->
     <link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/css/styles.css">
     <link href="<?php echo $_DOMAIN; ?>/css/output.css" rel="stylesheet">
@@ -19,12 +20,14 @@
 
 <body>
 
-    <div class="header border-bottom border-stale-700 shadow-sm max-w-screen fixed top-0 left-0 right-0 z-20 bg-white">
+    <div class="header border-bottom border-stale-700 shadow-xl max-w-screen fixed top-0 left-0 right-0 z-20 bg-white">
         <div class="w-[1440px] flex justify-between items-center space-x-2 relative mx-auto h-24 mt-5 max-w-[1440px] px-2 sm:px-6 lg:px-8">
             <div class="header-left flex relative justify-between space-x-2">
-                <div class="logo">
-                    <img src="https://www.freeiconspng.com/uploads/nike-logo-shape-symbol-png-9.png" width="100" alt="nike logo shape symbol png" />
-                </div>
+                <a href="<?php echo $_DOMAIN; ?>">
+                    <div class="logo">
+                        <img src="https://www.freeiconspng.com/uploads/nike-logo-shape-symbol-png-9.png" width="100" alt="nike logo shape symbol png" />
+                    </div>
+                </a>
                 <div class="nav-bar flex justify-between space-x-5">
 
                     <ul class="flex justify-between space-x-6">
@@ -38,6 +41,32 @@
                             }
                         }
                         ?>
+                        <nav class="hidden space-x-10 md:flex">
+                            <div class="relative">
+                                <button type="button" class="p-3 border-2 border-white rounded hover:border-b-black"><a class="btn btn-primary btn-sm flex items-center space-x-2" onclick="handleClickMenuDropDown()">
+                                        <span>Solutions</span>
+                                        <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                        </svg>
+                                </button>
+                                <div id="boxMenu" class="absolute z-10 -ml-4 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 rounded-xl lg:ml-0 lg:-translate-x-1/2  hidden">
+                                    <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                                        <div class="relative grid gap-6 bg-white px-5 py-2 sm:gap-2 sm:p-8">
+                                            <a href="#" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
+                                                <!-- Heroicon name: outline/chart-bar -->
+                                                <svg class="h-6 w-6 flex-shrink-0 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                                                </svg>
+                                                <div class="ml-4">
+                                                    <p class="text-base font-medium text-gray-900">Analytics</p>
+                                                    <p class="mt-1 text-sm text-gray-500">Get a better understanding of where your traffic is coming from.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
                     </ul>
                 </div>
             </div>
